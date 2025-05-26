@@ -10,14 +10,14 @@ This project simulates a real-world attacker environment where malicious activit
 Architecture
 
 Kali Attacker
-     ⬇
+    
 Azure Windows Honeypot VM
-     ⬇
+     
 Log Analytics Workspace
-     ⬇
+    
 Microsoft Sentinel
 
-☁️ Azure Setup
+Azure Setup
 
 VM OS: Windows Server 2019 Datacenter
 
