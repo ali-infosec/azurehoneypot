@@ -39,9 +39,9 @@ Inbound Rules Added:
 
 80 (TCP) - HTTP
 
-✉️ Screenshot: docs/screenshots/nsg-settings.png
+Screenshot: docs/screenshots/nsg-settings.png
 
-🔒 Windows Firewall Configuration
+Windows Firewall Configuration
 
 Enabled or created inbound rules for:
 
@@ -53,9 +53,9 @@ Windows Remote Management (HTTP-In)
 
 World Wide Web Services (HTTP Traffic-In)
 
-✉️ Screenshot: docs/screenshots/firewall-rules.png
+Screenshot: docs/screenshots/firewall-rules.png
 
-✨ Microsoft Sentinel Setup
+Microsoft Sentinel Setup
 
 Created Log Analytics Workspace
 
@@ -67,9 +67,9 @@ VM selected
 
 All events enabled
 
-✉️ Screenshot: docs/screenshots/sentinel-connector.png
+Screenshot: docs/screenshots/sentinel-connector.png
 
-🔢 KQL Queries Used
+KQL Queries Used
 
 Failed Login Detection:
 
@@ -85,9 +85,9 @@ SecurityEvent
 | summarize FailedAttempts = count() by TargetUserName, bin(TimeGenerated, 5m)
 | where FailedAttempts >= 3
 
-✉️ Screenshot: docs/screenshots/4625-query-results.png
+Screenshot: docs/screenshots/4625-query-results.png
 
-🛡️ Manual Traffic Simulation
+Manual Traffic Simulation
 
 Used .rdp file to attempt multiple failed logins with wrong passwords
 
@@ -97,10 +97,10 @@ nmap -Pn <VM_IP>
 
 hydra -l Administrator -P passlist.txt rdp://<VM_IP>
 
-✉️ Screenshot: docs/screenshots/rdp-attempt.png
-✉️ Screenshot: docs/screenshots/nmap-scan.png
+Screenshot: docs/screenshots/rdp-attempt.png
+Screenshot: docs/screenshots/nmap-scan.png
 
-🔐 Detection Rule (Optional)
+Detection Rule (Optional)
 
 Name: RDP Brute-Force DetectionKQL:
 
@@ -114,10 +114,10 @@ Runs every 5 min
 
 Alerts if results > 0
 
-✉️ Screenshot: docs/screenshots/detection-rule.png
-✉️ Screenshot: docs/screenshots/incident-alert.png
+Screenshot: docs/screenshots/detection-rule.png
+Screenshot: docs/screenshots/incident-alert.png
 
-✅ Outcome
+Outcome
 
 Successfully simulated brute-force login behavior
 
@@ -127,7 +127,7 @@ Confirmed real-time log ingestion and alerting via KQL
 
 Demonstrated hands-on detection logic using free Azure tools
 
-🔧 Skills Demonstrated
+Skills Demonstrated
 
 Microsoft Sentinel setup
 
