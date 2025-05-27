@@ -107,24 +107,24 @@ Alerts if results > 0
 
 ## Outcome
 
-Successfully simulated brute-force login behavior
+- Successfully simulated brute-force login behavior
 
-Captured logs in Microsoft Sentinel
+- Captured logs in Microsoft Sentinel
 
-Confirmed real-time log ingestion and alerting via KQL
+- Confirmed real-time log ingestion and alerting via KQL
 
-Demonstrated hands-on detection logic using Azure tools
+- Demonstrated hands-on detection logic using Azure tools
 
-Skills Demonstrated
+## Skills Demonstrated
 
-Microsoft Sentinel setup
+- Microsoft Sentinel setup
 
-Log Analytics workspace configuration
+- Log Analytics workspace configuration
 
-KQL for event hunting and detection
+- KQL for event hunting and detection
 
-Windows firewall and NSG hardening
+- Windows firewall and NSG hardening
 
-Capturing threat actor behavior
+- Capturing threat actor behavior
 
-Building cloud-based honeypots
+- Building cloud-based honeypots
