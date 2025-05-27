@@ -52,7 +52,7 @@ Windows Remote Management (HTTP-In)
 
 World Wide Web Services (HTTP Traffic-In)
 
-[Firewall Rules](docs/screenshots/Firewall-Rules.png)
+![Firewall Rules](docs/screenshots/Firewall-Rules.png)
 
 ## Microsoft Sentinel Setup
 
@@ -66,7 +66,7 @@ VM selected
 
 All events enabled
 
-[Sentinel Connector](docs/screenshots/Sentinel-Connector.png)
+![Sentinel Connector](docs/screenshots/Sentinel-Connector.png)
 
 ## KQL Queries Used
 
@@ -76,7 +76,7 @@ SecurityEvent
 | where EventID == 4625
 | order by TimeGenerated desc
 
-[Traffic of Failed Logins](docs/screenshots/Failed-Login-Detection.png)
+![Traffic of Failed Logins](docs/screenshots/Failed-Login-Detection.png)
 
 # Brute-Force Detection:
 
@@ -86,7 +86,7 @@ SecurityEvent
 | summarize FailedAttempts = count() by TargetUserName, bin(TimeGenerated, 5m)
 | where FailedAttempts >= 3
 
-[Detected Brute-Force Traffic](docs/screenshots/Bruteforce-Results.png)
+![Detected Brute-Force Traffic](docs/screenshots/Bruteforce-Results.png)
 
 ## Detection Rule
 
