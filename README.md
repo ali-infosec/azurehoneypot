@@ -1,5 +1,4 @@
 Azure Honeypot Monitored with Microsoft Sentinel
-Azure Honeypot with Microsoft Sentinel
 
 Overview
 
@@ -53,7 +52,7 @@ Windows Remote Management (HTTP-In)
 
 World Wide Web Services (HTTP Traffic-In)
 
-Screenshot: docs/screenshots/firewall-rules.png
+[Firewall Rules](docs/screenshots/Firewall-Rules.png)
 
 Microsoft Sentinel Setup
 
@@ -67,7 +66,7 @@ VM selected
 
 All events enabled
 
-Screenshot: docs/screenshots/sentinel-connector.png
+[Sentinel Connector](docs/screenshots/Sentinel-Connector.png)
 
 KQL Queries Used
 
@@ -77,6 +76,8 @@ SecurityEvent
 | where EventID == 4625
 | order by TimeGenerated desc
 
+[Traffic of Failed Logins](docs/screenshots/Failed-Login-Detection.png)
+
 Brute-Force Detection:
 
 SecurityEvent
@@ -85,22 +86,9 @@ SecurityEvent
 | summarize FailedAttempts = count() by TargetUserName, bin(TimeGenerated, 5m)
 | where FailedAttempts >= 3
 
-Screenshot: docs/screenshots/4625-query-results.png
+[Detected Brute-Force Traffic](docs/screenshots/Bruteforce-Results.png)
 
-Manual Traffic Simulation
-
-Used .rdp file to attempt multiple failed logins with wrong passwords
-
-Optional tools used:
-
-nmap -Pn <VM_IP>
-
-hydra -l Administrator -P passlist.txt rdp://<VM_IP>
-
-Screenshot: docs/screenshots/rdp-attempt.png
-Screenshot: docs/screenshots/nmap-scan.png
-
-Detection Rule (Optional)
+Detection Rules
 
 Name: RDP Brute-Force DetectionKQL:
 
@@ -114,9 +102,6 @@ Runs every 5 min
 
 Alerts if results > 0
 
-Screenshot: docs/screenshots/detection-rule.png
-Screenshot: docs/screenshots/incident-alert.png
-
 Outcome
 
 Successfully simulated brute-force login behavior
@@ -125,7 +110,7 @@ Captured logs in Microsoft Sentinel
 
 Confirmed real-time log ingestion and alerting via KQL
 
-Demonstrated hands-on detection logic using free Azure tools
+Demonstrated hands-on detection logic using Azure tools
 
 Skills Demonstrated
 
@@ -137,6 +122,6 @@ KQL for event hunting and detection
 
 Windows firewall and NSG hardening
 
-Simulating threat actor behavior
+Capturing threat actor behavior
 
 Building cloud-based honeypots
