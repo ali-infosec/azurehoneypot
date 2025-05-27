@@ -39,7 +39,7 @@ Inbound Rules Added:
 
 80 (TCP) - HTTP
 
-Screenshot: docs/screenshots/nsg-settings.png
+[NSG Rules](docs/screenshots/NSG-Rules.png)
 
 Windows Firewall Configuration
 
