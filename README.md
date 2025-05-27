@@ -1,12 +1,12 @@
-Azure Honeypot Monitored with Microsoft Sentinel
+# Azure Honeypot Monitored with Microsoft Sentinel
 
-Overview
+## Overview
 
 Built a Windows honeypot in Azure to detect and log brute-force RDP attacks using Microsoft Sentinel.
 
 This project simulates a real-world attacker environment where malicious activity is logged, monitored, and analyzed through Sentinel using KQL. It demonstrates log ingestion, event analysis, and detection engineering.
 
-Architecture
+## Architecture
 
 Kali Attacker
     
@@ -16,7 +16,7 @@ Log Analytics Workspace
     
 Microsoft Sentinel
 
-Azure Setup
+## Azure Setup
 
 VM OS: Windows Server 2019 Datacenter
 
@@ -24,7 +24,7 @@ VM Size: B1s
 
 Public IP: 74.249.xx.xx
 
-NSG Configuration
+## NSG Configuration
 
 Inbound Rules Added:
 
@@ -38,9 +38,9 @@ Inbound Rules Added:
 
 80 (TCP) - HTTP
 
-[NSG Rules](docs/screenshots/NSG_Rules.png)
+![NSG Rules](docs/screenshots/NSG_Rules.png)
 
-Windows Firewall Configuration
+## Windows Firewall Configuration
 
 Enabled or created inbound rules for:
 
@@ -54,7 +54,7 @@ World Wide Web Services (HTTP Traffic-In)
 
 [Firewall Rules](docs/screenshots/Firewall-Rules.png)
 
-Microsoft Sentinel Setup
+## Microsoft Sentinel Setup
 
 Created Log Analytics Workspace
 
@@ -68,9 +68,9 @@ All events enabled
 
 [Sentinel Connector](docs/screenshots/Sentinel-Connector.png)
 
-KQL Queries Used
+## KQL Queries Used
 
-Failed Login Detection:
+# Failed Login Detection:
 
 SecurityEvent
 | where EventID == 4625
@@ -78,7 +78,7 @@ SecurityEvent
 
 [Traffic of Failed Logins](docs/screenshots/Failed-Login-Detection.png)
 
-Brute-Force Detection:
+# Brute-Force Detection:
 
 SecurityEvent
 | where EventID == 4625
@@ -88,10 +88,11 @@ SecurityEvent
 
 [Detected Brute-Force Traffic](docs/screenshots/Bruteforce-Results.png)
 
-Detection Rules
+## Detection Rule
 
-Name: RDP Brute-Force DetectionKQL:
+Name: RDP Brute-Force Detection 
 
+KQL:
 SecurityEvent
 | where EventID == 4625
 | where LogonType == 10
@@ -102,7 +103,7 @@ Runs every 5 min
 
 Alerts if results > 0
 
-Outcome
+## Outcome
 
 Successfully simulated brute-force login behavior
 
