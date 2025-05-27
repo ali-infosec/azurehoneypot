@@ -72,33 +72,35 @@ All events enabled
 
 # Failed Login Detection:
 
+```kql
 SecurityEvent
 | where EventID == 4625
 | order by TimeGenerated desc
-
+```
 ![Traffic of Failed Logins](docs/screenshots/Failed-Login-Detection.png)
 
 # Brute-Force Detection:
 
+```kql
 SecurityEvent
 | where EventID == 4625
 | where LogonType == 10
 | summarize FailedAttempts = count() by TargetUserName, bin(TimeGenerated, 5m)
 | where FailedAttempts >= 3
-
+```
 ![Detected Brute-Force Traffic](docs/screenshots/Bruteforce-Results.png)
 
 ## Detection Rule
 
 Name: RDP Brute-Force Detection 
 
-KQL:
+```kql
 SecurityEvent
 | where EventID == 4625
 | where LogonType == 10
 | summarize FailedAttempts = count() by TargetUserName, bin(TimeGenerated, 5m)
 | where FailedAttempts >= 3
-
+```
 Runs every 5 min
 
 Alerts if results > 0
